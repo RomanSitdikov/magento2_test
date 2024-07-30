@@ -1,0 +1,15 @@
+<button type="button" id="buy-in-one-click" class="action primary">Buy in 1 click</button>
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        $('#buy-in-one-click').click(function() {
+            let phone = prompt("Enter your phone number");
+            let button = $(this);
+            if (phone) {
+                let sku = "<?= $block->getProductSku(); ?>";
+                $.post('/quickorder/index/save', { phone: phone, sku: sku}, function(response) {
+                    alert(response.message);
+                });
+            }
+        });
+    });
+</script>

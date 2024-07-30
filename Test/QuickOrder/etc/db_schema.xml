@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="test_quickorder" resource="default" engine="innodb" comment="Quick Orders Table">
+        <column xsi:type="int" name="order_id" nullable="false" identity="true" unsigned="true" comment="Order ID"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="255" comment="Product SKU"/>
+        <column xsi:type="varchar" name="phone" nullable="false" length="20" comment="Phone Number"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created At"/>
+        <column xsi:type="int" name="product_id" nullable="false" unsigned="true" comment="Product ID"/>
+        <constraint xsi:type="primary" referenceId="primary">
+            <column name="order_id"/>
+        </constraint>
+    </table>
+</schema>
